@@ -1,4 +1,6 @@
-﻿namespace Infrastructure;
+﻿using Infrastructure.EntityConfigurations.Breweries;
+
+namespace Infrastructure;
 
 public class BreweryContext : DbContext, IUnitOfWork
 {
@@ -10,6 +12,7 @@ public class BreweryContext : DbContext, IUnitOfWork
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.ApplyConfiguration(new BreweryEnityTypeConfiguration());
     }
 
     public async Task<bool> SaveEntitiesAsync(CancellationToken cancellationToken = default)
