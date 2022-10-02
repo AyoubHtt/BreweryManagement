@@ -1,4 +1,4 @@
-namespace BreweryManagement
+namespace API
 {
     public class WeatherForecast
     {

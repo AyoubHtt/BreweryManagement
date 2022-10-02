@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace BreweryManagement.Controllers
+namespace API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
