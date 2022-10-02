@@ -1,12 +1,14 @@
 using API.Infrastructure.AutofacModules;
 using API.Infrastructure.DbContextConfiguration;
+using API.Infrastructure.Filter;
 using Autofac.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(options => { options.Filters.Add(typeof(HttpGlobalExceptionFilter)); });
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
