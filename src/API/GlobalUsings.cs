@@ -1,0 +1,11 @@
+﻿global using Autofac;
+global using FluentValidation;
+global using global::Domain.Exceptions;
+global using global::Domain.SeedWork;
+global using MediatR;
+global using Microsoft.AspNetCore.Mvc;
+global using Microsoft.AspNetCore.Mvc.Filters;
+global using Microsoft.EntityFrameworkCore;
+global using System.Data;
+global using System.Net;
+global using System.Reflection;

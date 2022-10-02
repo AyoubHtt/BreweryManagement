@@ -2,7 +2,6 @@
 
 public class BreweryContext : DbContext, IUnitOfWork
 {
-
     private IDbContextTransaction _currentTransaction = default!;
     public IDbContextTransaction GetCurrentTransaction() => _currentTransaction;
     public bool HasActiveTransaction => _currentTransaction != null;

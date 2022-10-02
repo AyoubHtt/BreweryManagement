@@ -1,4 +1,6 @@
-﻿namespace Domain.SeedWork;
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace Domain.SeedWork;
 
 public interface IRepository<T> where T : Entity
 {
