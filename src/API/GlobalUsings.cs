@@ -2,6 +2,7 @@
 global using FluentValidation;
 global using global::Domain.Exceptions;
 global using global::Domain.SeedWork;
+global using global::API.Application.Extentions.ODataExtentions;
 global using MediatR;
 global using Microsoft.AspNetCore.Mvc;
 global using Microsoft.AspNetCore.Mvc.Filters;
