@@ -12,11 +12,11 @@ public class CreateBreweryCommandHandler : IRequestHandler<CreateBreweryCommand,
 
     public async Task<bool> Handle(CreateBreweryCommand request, CancellationToken cancellationToken)
     {
-        if (await _breweryRepository.CheckBreweryExistByName(request.Name)) throw new DomainException("Brewery name already exsit");
+        if (await _breweryRepository.CheckBreweryExistByNameAsync(request.Name, cancellationToken)) throw new DomainException("Brewery name already exsit");
 
         var newBrewery = new Brewery(request.Name);
 
-        await _breweryRepository.AddAsync(newBrewery);
+        await _breweryRepository.AddAsync(newBrewery, cancellationToken);
 
         return await _breweryRepository.UnitOfWork.SaveEntitiesAsync(cancellationToken);
     }

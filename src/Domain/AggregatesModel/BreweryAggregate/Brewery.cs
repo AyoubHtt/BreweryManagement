@@ -16,4 +16,11 @@ public class Brewery : Entity, IAggregateRoot
 
         AddDomainEvent(new BreweryCreatedEvent(this));
     }
+
+    public void Update(string name)
+    {
+        Name = name;
+
+        AddDomainEvent(new BreweryUpdatedEvent(this));
+    }
 }

@@ -12,11 +12,11 @@ public class Repository<T> : IRepository<T> where T : Entity
         DbSet = _breweryContext.Set<T>();
     }
 
-    public async Task<T?> GetByIdAsync(Guid id) => await DbSet.FindAsync(id);
+    public async Task<T?> GetByIdAsync(Guid id, CancellationToken cancellationToken) => await DbSet.FindAsync(new object?[] { id }, cancellationToken);
 
     public async Task<bool> CheckEntityExistByIdAsync(Guid id) => await DbSet.AnyAsync(entity => entity.Id == id);
 
-    public async Task<T> AddAsync(T entity) => (await DbSet.AddAsync(entity)).Entity;
+    public async Task<T> AddAsync(T entity, CancellationToken cancellationToken) => (await DbSet.AddAsync(entity, cancellationToken)).Entity;
 
     public async Task AddRangeAsync(List<T> entities, CancellationToken cancellationToken) => await DbSet.AddRangeAsync(entities, cancellationToken);
 
