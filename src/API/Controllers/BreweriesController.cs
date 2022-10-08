@@ -13,6 +13,6 @@ public class BreweriesController : ControllerBase
     [HttpPost]
     [ProducesResponseType((int)HttpStatusCode.OK)]
     [ProducesResponseType((int)HttpStatusCode.BadRequest)]
-    public async Task<IActionResult> Post([FromBody] CreateBreweryCommand createBreweryCommand) 
+    public async Task<IActionResult> Post([FromBody] CreateBreweryCommand createBreweryCommand)
         => await _bus.Send(createBreweryCommand) ? Ok() : BadRequest();
 }

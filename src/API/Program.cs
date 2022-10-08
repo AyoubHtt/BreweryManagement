@@ -2,6 +2,7 @@ using API.Infrastructure.AutofacModules;
 using API.Infrastructure.DbContextConfiguration;
 using API.Infrastructure.Filter;
 using Autofac.Extensions.DependencyInjection;
+using Infrastructure.EventLogEF.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +17,9 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddCustomDbContext(builder.Configuration);
 
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
+
+// Register event log service
+builder.Services.AddScoped<IIntegrationEventLogService, IntegrationEventLogService>();
 
 // Register services directly with Autofac here. Don't
 // call builder.Populate(), that happens in AutofacServiceProviderFactory.

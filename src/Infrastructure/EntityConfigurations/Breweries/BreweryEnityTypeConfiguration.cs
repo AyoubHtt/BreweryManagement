@@ -8,6 +8,6 @@ public class BreweryEnityTypeConfiguration : IEntityTypeConfiguration<Brewery>
     public void Configure(EntityTypeBuilder<Brewery> builder)
     {
         builder.HasKey(x => x.Id);
-        builder.Property(x=>x.Deleted).HasDefaultValue(false);
+        builder.Property(x => x.Deleted).HasDefaultValue(false);
     }
 }

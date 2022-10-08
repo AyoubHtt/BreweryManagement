@@ -1,4 +1,5 @@
-﻿using Domain.SeedWork;
+﻿using Domain.Events.BreweryEvents;
+using Domain.SeedWork;
 
 namespace Domain.AggregatesModel.BreweryAggregate;
 
@@ -12,5 +13,7 @@ public class Brewery : Entity, IAggregateRoot
     public Brewery(string name)
     {
         Name = name;
+
+        AddDomainEvent(new BreweryCreatedEvent(this));
     }
 }
