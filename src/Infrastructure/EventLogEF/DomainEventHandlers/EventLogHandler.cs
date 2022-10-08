@@ -16,5 +16,5 @@ public class EventLogHandler : INotificationHandler<EventLogs>
     }
 
     public async Task Handle(EventLogs notification, CancellationToken cancellationToken)
-        => await _integrationEventLogService.SaveEventLogAsync(notification);
+        => await _integrationEventLogService.SaveEventLogAsync(notification, cancellationToken);
 }

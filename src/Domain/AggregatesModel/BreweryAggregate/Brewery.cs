@@ -23,4 +23,11 @@ public class Brewery : Entity, IAggregateRoot
 
         AddDomainEvent(new BreweryUpdatedEvent(this));
     }
+
+    public void Delete()
+    {
+        Deleted = true;
+
+        AddDomainEvent(new BreweryDeletedEvent(this));
+    }
 }
