@@ -2,7 +2,7 @@
 
 namespace API.Application.CommandValidations.BreweryCommandsValidation;
 
-public class UpdateBerweryCommandValidator : AbstractValidator<UpdateBerweryCommand>
+public class UpdateBerweryCommandValidator : AbstractValidator<UpdateBreweryCommand>
 {
     public UpdateBerweryCommandValidator()
     {

@@ -2,15 +2,15 @@
 
 namespace API.Application.Commands.BreweryCommands;
 
-public record UpdateBerweryCommand(Guid Id, string Name) : IRequest<bool>;
+public record UpdateBreweryCommand(Guid Id, string Name) : IRequest<bool>;
 
-public class UpdateBerweryCommandHandler : IRequestHandler<UpdateBerweryCommand, bool>
+public class UpdateBreweryCommandHandler : IRequestHandler<UpdateBreweryCommand, bool>
 {
     private readonly IBreweryRepository _breweryRepository;
 
-    public UpdateBerweryCommandHandler(IBreweryRepository breweryRepository) => _breweryRepository = breweryRepository ?? throw new ArgumentNullException(nameof(breweryRepository));
+    public UpdateBreweryCommandHandler(IBreweryRepository breweryRepository) => _breweryRepository = breweryRepository ?? throw new ArgumentNullException(nameof(breweryRepository));
 
-    public async Task<bool> Handle(UpdateBerweryCommand request, CancellationToken cancellationToken)
+    public async Task<bool> Handle(UpdateBreweryCommand request, CancellationToken cancellationToken)
     {
         if (await _breweryRepository.CheckAnotherBreweryExistByNameAsync(request.Id, request.Name, cancellationToken)) throw new DomainException("Brewery name already exsit");
 

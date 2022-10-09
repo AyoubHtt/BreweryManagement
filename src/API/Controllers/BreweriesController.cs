@@ -28,7 +28,7 @@ public class BreweriesController : ControllerBase
     [HttpPut]
     [ProducesResponseType((int)HttpStatusCode.OK)]
     [ProducesResponseType((int)HttpStatusCode.BadRequest)]
-    public async Task<IActionResult> Put([FromBody] UpdateBerweryCommand updateBerweryCommand)
+    public async Task<IActionResult> Put([FromBody] UpdateBreweryCommand updateBerweryCommand)
         => await _bus.Send(updateBerweryCommand) ? Ok() : BadRequest();
 
     [HttpDelete]
