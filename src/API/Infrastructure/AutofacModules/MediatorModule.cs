@@ -1,4 +1,5 @@
 ﻿using API.Application.Behaviors;
+using Infrastructure.EventLogEF.DomainEventHandlers;
 
 namespace API.Infrastructure.AutofacModules;
 
@@ -12,6 +13,9 @@ public class MediatorModule : Autofac.Module
         // Register all the Command classes (they implement IRequestHandler) in assembly holding the Commands
         builder.RegisterAssemblyTypes(typeof(TransactionBehavior<,>).GetTypeInfo().Assembly)
             .AsClosedTypesOf(typeof(IRequestHandler<,>));
+
+        builder.RegisterAssemblyTypes(typeof(EventLogHandler).GetTypeInfo().Assembly)
+            .AsClosedTypesOf(typeof(INotificationHandler<>));
 
         // Register the Command's Validators (Validators based on FluentValidation library)
         builder
