@@ -1,4 +1,9 @@
-﻿global using MediatR;
+﻿global using global::Domain.AggregatesModel.BeerAggregate;
+global using global::Domain.AggregatesModel.BreweryAggregate;
+global using global::Domain.AggregatesModel.WholesalerAggregate;
+global using global::Domain.AggregatesModel.WholesalerStockAggregate;
+global using global::Domain.SeedWork;
+global using MediatR;
 global using System.Data;
 global using System.Reflection;
 global using System.Runtime.Serialization;

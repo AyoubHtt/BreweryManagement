@@ -1,5 +1,10 @@
-﻿using Infrastructure.EntityConfigurations.Breweries;
+﻿using Infrastructure.EntityConfigurations.Beers;
+using Infrastructure.EntityConfigurations.Breweries;
 using Infrastructure.EntityConfigurations.IntegrationEventLogEntries;
+using Infrastructure.EntityConfigurations.Invoices;
+using Infrastructure.EntityConfigurations.Orders;
+using Infrastructure.EntityConfigurations.Wholesalers;
+using Infrastructure.EntityConfigurations.WholesalerStocks;
 using Infrastructure.EventLogEF.Extensions;
 using MediatR;
 
@@ -16,8 +21,13 @@ public class BreweryContext : DbContext, IUnitOfWork
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.ApplyConfiguration(new BeerEntityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new BreweryEnityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new IntegrationEventLogEntryEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new InvoiceEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new OrderEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new WholesalerEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new WholesalerStockEntityTypeConfiguration());
     }
 
     public async Task<bool> SaveEntitiesAsync(CancellationToken cancellationToken = default)
